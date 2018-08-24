@@ -1,0 +1,31 @@
+server:
+  port: 8762
+  context-path: /service-hi
+spring:
+  application:
+    name: service-hi
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://admin:123123@eureka1:8001/eureka/,http://admin:123123@eureka2:8002/eureka/,http://admin:123123@eureka3:8003/eureka/
+info:
+  app:
+    name : @project.artifactId@
+    encoding: @project.build.sourceEncoding@
+    java : @java.version@
+management:
+  endpoints:
+    web:
+      exposure:
+        # * 在yaml 文件属于关键字，所以需要加引号 ,Actuator只暴露了health和info端点 ,暴露所有端点
+        include: "*"
+  server:
+    port: 10111
+    servlet:
+      context-path: /
+    ssl:
+      enabled: false
+  endpoint:
+    health:
+      #查看详细的应用健康
+      show-details: always   
