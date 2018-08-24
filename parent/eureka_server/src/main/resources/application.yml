@@ -17,11 +17,8 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://admin:123123@eureka2:8002/eureka/,http://admin:123123@eureka3:8003/eureka/
-    fetchRegistry: true
-    registerWithEureka: true 
-  #关闭自我保护
-  server:  
-    enableSelfPreservation: false      
+    fetchRegistry: false
+    registerWithEureka: false
 ---
 spring:
   profiles: eureka2
@@ -37,10 +34,8 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://admin:123123@eureka1:8001/eureka/,http://admin:123123@eureka3:8003/eureka/
-    fetchRegistry: true
-    registerWithEureka: true
-  server:  
-    enableSelfPreservation: false      
+    fetchRegistry: false
+    registerWithEureka: false
 ---
 spring:
   profiles: eureka3
@@ -56,8 +51,5 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://admin:123123@eureka1:8001/eureka/,http://admin:123123@eureka2:8002/eureka/
-    fetchRegistry: true
+    fetchRegistry: false
     registerWithEureka: true
-  server:  
-    enableSelfPreservation: false      
-    

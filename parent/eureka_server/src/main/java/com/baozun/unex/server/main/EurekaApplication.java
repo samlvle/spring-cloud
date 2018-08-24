@@ -1,7 +1,8 @@
-package com.baozun.unex.main;
+package com.baozun.unex.server.main;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
+ 
 @SpringBootApplication
 @EnableEurekaServer
 public class EurekaApplication {

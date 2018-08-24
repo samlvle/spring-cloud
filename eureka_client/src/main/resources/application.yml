@@ -8,11 +8,11 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://admin:123123@eureka1:8001/eureka/,http://admin:123123@eureka2:8002/eureka/,http://admin:123123@eureka3:8003/eureka/
-info:
-  app:
-    name : @project.artifactId@
-    encoding: @project.build.sourceEncoding@
-    java : @java.version@
+#info:
+  #app:
+   # name : @project.artifactId@
+    #encoding: @project.build.sourceEncoding@
+   # java : @java.version@
 management:
   endpoints:
     web:

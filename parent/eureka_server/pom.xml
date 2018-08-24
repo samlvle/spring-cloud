@@ -6,17 +6,15 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>eureka_server</artifactId>
-  
-   <dependencies>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
-        </dependency>
-        <!-- 用于服务注入验证 -->
+  <dependencies>
+	<dependency>
+		<groupId>org.springframework.cloud</groupId>
+		<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+	</dependency>
+	<!-- 用于服务注入验证 -->
 	<dependency>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-security</artifactId>
 	</dependency>
-        
-    </dependencies>
+</dependencies>
 </project>

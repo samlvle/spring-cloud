@@ -1,5 +1,4 @@
-package com.baozun.unex.main;
-
+package com.baozun.unex.server.main;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
