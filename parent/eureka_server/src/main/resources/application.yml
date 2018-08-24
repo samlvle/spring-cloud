@@ -1,0 +1,63 @@
+
+spring:
+  application:
+    name: EUREKA
+--- #注意这里是三个"减号"
+spring:
+  profiles: eureka1
+  security:
+    user:
+      name: admin
+      password: 123123
+server:
+  port: 8001
+eureka:
+  instance:
+    hostname: eureka1
+  client:
+    serviceUrl:
+      defaultZone: http://admin:123123@eureka2:8002/eureka/,http://admin:123123@eureka3:8003/eureka/
+    fetchRegistry: true
+    registerWithEureka: true 
+  #关闭自我保护
+  server:  
+    enableSelfPreservation: false      
+---
+spring:
+  profiles: eureka2
+  security:
+    user:
+      name: admin
+      password: 123123
+server:
+  port: 8002
+eureka:
+  instance:
+    hostname: eureka2
+  client:
+    serviceUrl:
+      defaultZone: http://admin:123123@eureka1:8001/eureka/,http://admin:123123@eureka3:8003/eureka/
+    fetchRegistry: true
+    registerWithEureka: true
+  server:  
+    enableSelfPreservation: false      
+---
+spring:
+  profiles: eureka3
+  security:
+    user:
+      name: admin
+      password: 123123
+server:
+  port: 8003
+eureka:
+  instance:
+    hostname: eureka3
+  client:
+    serviceUrl:
+      defaultZone: http://admin:123123@eureka1:8001/eureka/,http://admin:123123@eureka2:8002/eureka/
+    fetchRegistry: true
+    registerWithEureka: true
+  server:  
+    enableSelfPreservation: false      
+    
