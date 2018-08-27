@@ -28,4 +28,7 @@ management:
   endpoint:
     health:
       #查看详细的应用健康
-      show-details: always   
+      show-details: always
+  info : 
+    git : 
+      mode : full        
