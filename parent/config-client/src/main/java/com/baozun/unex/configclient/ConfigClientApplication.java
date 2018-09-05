@@ -14,7 +14,7 @@ public class ConfigClientApplication {
     	
     }
 
-    @Value("${foo}")
+    @Value("${eureka.client.serviceUrl.defaultZone}")
     String foo;
     @RequestMapping(value = "/hi")
     public String hi(){

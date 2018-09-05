@@ -1,0 +1,489 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.baozun.unex.product</groupId>
+	<artifactId>unex-product-pom</artifactId>
+	<version>1.3.0-RELEASE</version>
+	<packaging>pom</packaging>
+	<name>unex-product-pom</name>
+	<inceptionYear>2018</inceptionYear>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.5.13.RELEASE</version>
+		<relativePath />
+	</parent>
+
+	<modules>
+		<module>product-pim-inventory</module>
+
+		<module>product-base</module>
+		<module>product-common</module>
+		<module>product-domain</module>
+		<module>product-inventory-api</module>
+		<module>product-item-api</module>
+		<module>product-item-service</module>
+		<module>product-item-web</module>
+		<module>product-mongo</module>
+		<module>product-param</module>
+		<module>product-price-api</module>
+		<module>product-price-service</module>
+		<module>product-price-web</module>
+		<module>product-solr-service</module>
+		<module>product-solr-web</module>
+	</modules>
+
+	<properties>
+		<java.version>1.8</java.version>
+		<commons-lang3.version>3.5</commons-lang3.version>
+		<guava.version>21.0</guava.version>
+		<pagehelper.version>4.0.0</pagehelper.version>
+		<fastjson.version>1.2.3</fastjson.version>
+		<mysql.version>5.1.44</mysql.version>
+		<mybatis.version>1.1.1</mybatis.version>
+		<tk.mapper.version>3.3.8</tk.mapper.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<maven.build.timestamp.format>yyyy-MM-dd HH:mm:ssa</maven.build.timestamp.format>
+		<!--<skipTests>true</skipTests>-->
+		<lombok.version>1.16.18</lombok.version>
+		<spring-cloud-unex-router.version>1.2.3.RELEASE</spring-cloud-unex-router.version>
+		<!-- repo vo -->
+		<profiles.active>dev</profiles.active>
+		<docker.domain>ic-harbor.baozun.com</docker.domain>
+		<docker.repo>dev</docker.repo>
+		<!-- 日志接口 -->
+		<noa-logger.version>1.3.15.RELEASE</noa-logger.version>
+	</properties>
+
+	<repositories>
+	<repository>
+		<id>releases</id>
+		<name>nexus-releases</name>
+		<url>http://itcentral.baozun.cn/nexus/content/repositories/releases/</url>
+	</repository>	
+	<repository>
+     <id>bz-nexus</id>
+     <name>bz-nexus</name>
+     <url>http://nexus.baozun.com/repository/bz-develop</url>
+     <releases>
+         <enabled>true</enabled>
+         <checksumPolicy>warn</checksumPolicy>
+    </releases>
+</repository>
+</repositories>
+	<distributionManagement>
+		<snapshotRepository>
+			<id>snapshots</id>
+			<name>nexus-snapshots</name>
+			<url>http://itcentral.baozun.cn/nexus/content/repositories/snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.baozun.casaba</groupId>
+				<artifactId>casaba-commons</artifactId>
+				<version>1.1.4-RELEASE</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.baozun.unex.product</groupId>
+				<artifactId>product-base</artifactId>
+				<version>1.3.0-RELEASE</version>
+			</dependency>
+			<dependency>
+				<groupId>com.baozun.unex.product</groupId>
+				<artifactId>product-common</artifactId>
+				<version>1.3.0-RELEASE</version>
+			</dependency>
+			<dependency>
+				<groupId>com.baozun.unex.product</groupId>
+				<artifactId>product-domain</artifactId>
+				<version>1.3.0-RELEASE</version>
+			</dependency>
+			<dependency>
+				<groupId>com.baozun.unex.product</groupId>
+				<artifactId>product-inventory-api</artifactId>
+				<version>1.3.0-RELEASE</version>
+			</dependency>
+			<dependency>
+				<groupId>com.baozun.unex.product</groupId>
+				<artifactId>product-inventory-service</artifactId>
+				<version>1.3.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>com.baozun.unex.product</groupId>
+				<artifactId>product-item-api</artifactId>
+				<version>1.3.0-RELEASE</version>
+			</dependency>
+			<dependency>
+				<groupId>com.baozun.unex.product</groupId>
+				<artifactId>product-item-service</artifactId>
+				<version>1.3.0-RELEASE</version>
+			</dependency>
+			<dependency>
+				<groupId>com.baozun.unex.product</groupId>
+				<artifactId>product-mongo</artifactId>
+				<version>1.3.0-RELEASE</version>
+			</dependency>
+			<dependency>
+				<groupId>com.baozun.unex.product</groupId>
+				<artifactId>product-param</artifactId>
+				<version>1.3.0-RELEASE</version>
+			</dependency>
+			<dependency>
+				<groupId>com.baozun.unex.product</groupId>
+				<artifactId>product-price-api</artifactId>
+				<version>1.3.0-RELEASE</version>
+			</dependency>
+			<dependency>
+				<groupId>com.baozun.unex.product</groupId>
+				<artifactId>product-price-service</artifactId>
+				<version>1.3.0-RELEASE</version>
+			</dependency>
+			<dependency>
+				<groupId>com.baozun.unex.product</groupId>
+				<artifactId>product-solr-service</artifactId>
+				<version>1.3.0-RELEASE</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.baozun.hub</groupId>
+				<artifactId>hub-sdk</artifactId>
+				<version>1.0.14</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-lang3</artifactId>
+				<version>${commons-lang3.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.google.guava</groupId>
+				<artifactId>guava</artifactId>
+				<version>${guava.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>Edgware.SR3</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+			<!-- api工具 -->
+			<dependency>
+				<groupId>io.springfox</groupId>
+				<artifactId>springfox-swagger2</artifactId>
+				<version>2.7.0</version>
+			</dependency>
+			<dependency>
+				<groupId>io.springfox</groupId>
+				<artifactId>springfox-swagger-ui</artifactId>
+				<version>2.7.0</version>
+			</dependency>
+
+			<!-- 数据库关联依赖 -->
+			<dependency>
+				<groupId>tk.mybatis</groupId>
+				<artifactId>mapper-spring-boot-starter</artifactId>
+				<version>1.2.4</version>
+			</dependency>
+			<dependency>
+				<groupId>org.mybatis.generator</groupId>
+				<artifactId>mybatis-generator-core</artifactId>
+				<version>1.3.5</version>
+			</dependency>
+			<dependency>
+				<groupId>com.github.miemiedev</groupId>
+				<artifactId>mybatis-paginator</artifactId>
+				<version>1.2.17</version>
+			</dependency>
+
+			<!-- excel表格操作 -->
+			<dependency>
+				<groupId>org.apache.poi</groupId>
+				<artifactId>poi-ooxml</artifactId>
+				<version>3.17</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.poi</groupId>
+				<artifactId>poi</artifactId>
+				<version>3.17</version>
+			</dependency>
+
+			<!-- RocketMQ关联依赖 -->
+			<dependency>
+				<groupId>com.alibaba.rocketmq</groupId>
+				<artifactId>rocketmq-client</artifactId>
+				<version>3.6.2.Final</version>
+			</dependency>
+			<dependency>
+				<groupId>com.alibaba.rocketmq</groupId>
+				<artifactId>rocketmq-common</artifactId>
+				<version>3.6.2.Final</version>
+			</dependency>
+
+			<!-- unex router -->
+			<dependency>
+				<groupId>com.baozun</groupId>
+				<artifactId>spring-cloud-unex-router-core</artifactId>
+				<version>${spring-cloud-unex-router.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.baozun</groupId>
+				<artifactId>spring-cloud-unex-router-feign</artifactId>
+				<version>${spring-cloud-unex-router.version}</version>
+			</dependency>
+
+			<!-- https://mvnrepository.com/artifact/com.codahale.metrics/metrics-core -->
+			<dependency>
+				<groupId>com.codahale.metrics</groupId>
+				<artifactId>metrics-core</artifactId>
+				<version>3.0.2</version>
+			</dependency>					
+		</dependencies>
+	</dependencyManagement>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-hystrix</artifactId>
+		</dependency>
+
+	<dependency>
+		<groupId>org.springframework.cloud</groupId>
+		<artifactId>spring-cloud-starter-feign</artifactId>
+	</dependency>
+	<!-- 排除掉springboot中的相关日志 -->
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-logging</artifactId>
+		<exclusions>
+			<exclusion>
+				<artifactId>logback-classic</artifactId>
+				<groupId>ch.qos.logback</groupId>
+			</exclusion>
+			<exclusion>
+				<artifactId>logback-core</artifactId>
+				<groupId>ch.qos.logback</groupId>
+			</exclusion>
+		</exclusions>
+	</dependency>
+
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-test</artifactId>
+		<exclusions>
+			<exclusion>
+				<artifactId>logback-classic</artifactId>
+				<groupId>ch.qos.logback</groupId>
+			</exclusion>
+			<exclusion>
+				<artifactId>logback-core</artifactId>
+				<groupId>ch.qos.logback</groupId>
+			</exclusion>
+		</exclusions>
+	</dependency>
+	<!-- <dependency>
+		<groupId>com.newnoa</groupId>
+		<artifactId>noa-logger</artifactId>
+		<version>${noa-logger.version}</version>
+	</dependency> -->	
+	 <dependency>
+     <groupId>com.newnoa</groupId>
+     <artifactId>sdk-assembly-old</artifactId>
+     <version>1.0.0.BETA3</version>
+   </dependency>	
+         <!-- end -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-aop</artifactId>
+		</dependency>
+
+		<!-- <dependency> <groupId>org.springframework.cloud</groupId> <artifactId>spring-cloud-starter-config</artifactId> 
+			</dependency> -->
+
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-eureka</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.codahale.metrics/metrics-core -->
+		<dependency>
+			<groupId>com.codahale.metrics</groupId>
+			<artifactId>metrics-core</artifactId>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/ognl/ognl -->
+		<dependency>
+			<groupId>ognl</groupId>
+			<artifactId>ognl</artifactId>
+			<version>3.2.3</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>com.baozun.nebula</groupId>
+			<artifactId>nebula-utilities</artifactId>
+			<version>5.0.4.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.netflix.feign/feign-httpclient -->
+		<dependency>
+			<groupId>com.netflix.feign</groupId>
+			<artifactId>feign-httpclient</artifactId>
+			<version>8.18.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>${fastjson.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.jayway.jsonpath</groupId>
+			<artifactId>json-path</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- Swagger -->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+	</dependencies>
+
+	<profiles>
+		<profile>
+			<id>dev</id>
+			<properties>
+				<profiles.active>dev</profiles.active>
+				<docker.domain>ic-harbor.baozun.com</docker.domain>
+				<docker.repo>dev</docker.repo>
+			</properties>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+		</profile>
+		<profile>
+			<id>sit</id>
+			<properties>
+				<profiles.active>sit</profiles.active>
+				<docker.domain>ic-harbor.baozun.com</docker.domain>
+				<docker.repo>sit</docker.repo>
+			</properties>
+		</profile>
+		<profile>
+			<id>uat</id>
+			<properties>
+				<profiles.active>uat</profiles.active>
+				<docker.domain>ic-harbor.baozun.com</docker.domain>
+				<docker.repo>uat</docker.repo>
+			</properties>
+		</profile>
+
+		<profile>
+			<id>demo</id>
+			<properties>
+				<profiles.active>demo</profiles.active>
+				<docker.domain>harbor.baozun.com</docker.domain>
+				<docker.repo>demo</docker.repo>
+			</properties>
+		</profile>
+
+		<profile>
+			<id>prod</id>
+			<properties>
+				<profiles.active>prod</profiles.active>
+				<docker.domain>harbor.baozun.com</docker.domain>
+				<docker.repo>prod</docker.repo>
+			</properties>
+		</profile>
+	</profiles>
+
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>docker-maven-plugin</artifactId>
+				<version>1.0.0</version>
+				<configuration>
+					<!-- 注意imageName一定要是符合正则[a-z0-9-_.]的，否则构建不会成功 -->
+					<!-- 详见：https://github.com/spotify/docker-maven-plugin Invalid repository 
+						name ... only [a-z0-9-_.] are allowed -->
+					<imageName>${docker.domain}/${docker.repo}/pim-core</imageName>
+					<baseImage>${docker.domain}/ic/jdk1.8</baseImage>
+				</configuration>
+			</plugin>
+
+			<!-- <plugin> -->
+			<!-- <artifactId>maven-source-plugin</artifactId> -->
+			<!-- <configuration> -->
+			<!-- <attach>true</attach> -->
+			<!-- </configuration> -->
+			<!-- <executions> -->
+			<!-- <execution> -->
+			<!-- <phase>compile</phase> -->
+			<!-- <goals> -->
+			<!-- <goal>jar</goal> -->
+			<!-- </goals> -->
+			<!-- </execution> -->
+			<!-- </executions> -->
+			<!-- </plugin> -->
+		</plugins>
+	</build>
+</project>
