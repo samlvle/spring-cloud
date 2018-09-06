@@ -1,0 +1,17 @@
+server:
+  port: 8762
+  servlet : 
+    context-path : /service-hi  
+spring:
+  application:
+    name: service-hi
+  cloud : #指定配置中心
+    config : 
+      label: SpringcloudConfig #分支的名字
+      profile: ${spring.profiles.active}
+      uri: http://localhost:8888
+#info:
+  #app:
+   # name : @project.artifactId@
+    #encoding: @project.build.sourceEncoding@
+   # java : @java.version@   

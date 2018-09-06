@@ -26,12 +26,19 @@ public class HiController {
     }
     @RequestMapping("/hello")
     public String index(@RequestParam String name) {
-        logger.info("request two name is "+name);
+    	if(logger.isInfoEnabled())
+    	{
+        logger.info("request two name is:{} ",name);
+    	}
         try{
             Thread.sleep(1000000);
         }catch ( Exception e){
-            logger.error(" hello two error",e);
+        	if(logger.isErrorEnabled())
+        	{          
+            logger.error(" hello two error:{}",e);
+        	}
+          
         }
         return "hello "+name+"，this is two messge";
-    }
+    }  
 }
