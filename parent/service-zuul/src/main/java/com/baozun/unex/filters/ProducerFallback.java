@@ -40,7 +40,6 @@ public class ProducerFallback implements FallbackProvider {
 
             @Override
             public String getStatusText() throws IOException {
-               // return "OK";
             	return HttpStatus.OK.getReasonPhrase();
             }
 
