@@ -11,4 +11,5 @@ spring:
       profile: ${spring.profiles.active}
       uri: http://localhost:8888
 #healthport: 11102
+#当配置中心的值变了之后，需要调用这个去刷新 http://localhost:8765/service-feign/actuator/refresh
  
