@@ -10,6 +10,7 @@ spring:
       label: SpringcloudConfig #分支的名字
       profile: ${spring.profiles.active}
       uri: http://localhost:8888
+#healthport: 11101      
 #info:
   #app:
    # name : @project.artifactId@
