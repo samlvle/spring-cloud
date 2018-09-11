@@ -7,7 +7,10 @@ spring:
     config : 
       label: SpringcloudConfig #分支的名字
       profile: ${spring.profiles.active}
-      uri: http://localhost:8888    
+      #uri: http://localhost:8888
+      discovery:
+        enabled: true #是从配置中心读取文件
+        serviceId: config-server #配置中心的servieId，即服务名  如果报找不到serviceid就把bootstrap.yml 改成application.yml       
 zuul:
   #ignored-services: microservice-provider-user # 需要忽视的服务(配置后将不会被路由)
   routes:
