@@ -45,11 +45,11 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
-		<!-- hystrix dashboard的支持 -->
+		<!-- hystrix dashboard的支持
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-hystrix-dashboard</artifactId>
-		</dependency>
+		</dependency> -->
 		<!-- 路由重试Spring Retry依赖 -->
 		<dependency>
 			<groupId>org.springframework.retry</groupId>

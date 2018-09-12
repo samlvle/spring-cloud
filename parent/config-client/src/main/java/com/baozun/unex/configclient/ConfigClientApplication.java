@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @EnableEurekaClient
 @EnableDiscoveryClient
 @RestController
-@RefreshScope
+@RefreshScope //配置了bus总线 ,不配置bus,/actuator/refresh 是刷新单台 ，/actuator/bus-refresh，通过广播刷新所有的服务
 public class ConfigClientApplication {
 
     /**
