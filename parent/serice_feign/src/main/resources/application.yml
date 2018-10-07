@@ -12,7 +12,9 @@ spring:
       #uri: http://localhost:8888
       discovery:
         enabled: true #是从配置中心读取文件
-        serviceId: config-server #配置中心的servieId，即服务名   
+        serviceId: config-server #配置中心的servieId，即服务名 
+  zipkin : 
+    base-url : http://localhost:9411        
 #healthport: 11102
 #当配置中心的值变了之后，需要调用这个去刷新 http://localhost:8765/service-feign/actuator/refresh
  

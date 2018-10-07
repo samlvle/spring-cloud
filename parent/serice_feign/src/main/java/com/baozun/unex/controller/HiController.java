@@ -1,4 +1,5 @@
 package com.baozun.unex.controller;
+import org.apache.logging.log4j.Level;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,8 @@ public class HiController {
     String foo;
     
     @GetMapping(value = "/hi")
-    public String sayHi(@RequestParam String name) {
+    public String sayHi(@RequestParam String name) {    	
+        logger.info( "calling trace service-hi  ");
         return schedualServiceHi.sayHiFromClientOne( name+" "+foo );
     }
     @RequestMapping("/hello")
